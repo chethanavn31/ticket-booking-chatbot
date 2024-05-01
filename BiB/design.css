@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  font-family: cursive ;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 36px;
+  color: green;
+}
+
+.row {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+}
+
+.column {
+  flex: 40%;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  max-height: 30px;
+  border: none;
+  /* table-layout: auto; */
+}
+
+.ticket {
+  border-spacing: 0;
+  width: 70%;
+  border: none;
+}
+
+.shadow {
+    background-color: yellow; 
+    box-shadow: -5px -5px 10px rgb(207, 202, 202);
+}
+
+.tablecard {
+  box-shadow: 10px 10px 10px rgb(207, 202, 202); 
+  background: white;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+td {
+    padding: 5px;
+}
+
+.imgMov {
+  width: 80%;
+  height: 250px;
+}
+
+.rowSeat{
+  background-color: darkgray;
+}
+
+.seatSelected{
+    background-color: green;  
+    /* border:1px solid black; */
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+}
+
+.seatBooked{
+    background-color: red;
+    /* border:1px solid black; */
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+}
+
+.seatEmpty{
+    background-color: white;
+    /* border:1px solid black; */
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 6px 10px black;
+}
+
+.btn:hover {
+  background-color: rgb(252, 74, 74);
+  color: ivory;
+}
+
+.btn:active {
+    box-shadow: 5px 10px 10px black;
+    transform: translateY(4px);
+}
+
+
+
+/* TOAST BOX */
+#snackbar {
+  visibility: hidden;
+  min-width: 300px;
+  /* margin-left: -125px; */
+  background-color: white;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 230px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.success {
+  background-color: green;
+}
+
+#snackbar.error {
+  background-color: red;
+}
+
+#snackbar.check {
+  background-color: orange;
+  color: black;
+}
+
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 230px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 230px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 230px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 230px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+/* TOAST BOX */
+

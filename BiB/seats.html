@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="design.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  <script>
+    $(document).ready(function () {
+      let markup = '';
+      let c = 65;
+      for (var i = 0; i < 10; i++, c++) {
+        if (i == 5) {
+          markup = markup + '<tr> <td></td></tr>  <tr><td></td></tr> <tr><td></td></tr>';
+        }
+        markup = markup + '<tr>';
+        for (var j = 0; j <= 12; j++) {
+          if (j == 0) {
+            markup = markup + '<td><button style="font-size: 12px;border: none; background-color: white;">' 
+            + String.fromCharCode(c) + '</button></td>';
+          }
+          else {
+            markup = markup + '<td><button id="' + String.fromCharCode(c) + j + '" class="seatEmpty" onclick="btnClick(getElementById(id))">' +
+              j + '</button></td>';
+          }
+
+          if (j == 6) {
+            markup = markup + '<td></td> <td></td> <td></td>';
+          }
+        }
+        markup = markup + '</tr>';
+
+      }
+      tableBody = $("#seatTable tbody");
+      tableBody.append(markup);
+    });
+
+    function btnClick(e){
+      classAddRemove(e);
+      var eid = e.id.toString();
+      var classname = $("#"+e.id).attr('class');
+      // console.log('ssssssss',id,);
+      var name = $("#seatName").text().toString();
+      var count = $("#seatCount").text().toString();
+      // console.log('aaaaaaaaaaaaaaa',count,Number(count));
+       if (classname == "seatSelected") {
+        if (!name.trim()) {
+          $("#seatName").text(eid);
+          $("#seatCount").text("1");
+          // console.log('000',$("#seatCount").text().toString());
+        }
+        else {
+          $("#seatName").text(name + ',' + eid);
+          var cnt = Number(count);
+          cnt = cnt + 1;
+          $("#seatCount").text(cnt);
+          // console.log('0+1',$("#seatCount").text().toString());
+        }
+      }
+      else {
+        // console.log('aad', eid, name, name.indexOf(eid));
+        if (name.indexOf(eid) == 0) {
+          var str = $("#seatName").text().replace(eid, '');
+          if (name.indexOf(',') == 2) {
+            var str = $("#seatName").text().replace(eid + ',', '');
+          }
+        }
+        else {
+          var str = $("#seatName").text().replace(',' + eid, '');
+        }
+        $("#seatName").text(str);
+      }     
+}
+function classAddRemove(e) {
+  var classname = $("#"+e.id).attr('class');
+  if (classname == "seatEmpty") {
+        // console.log('eeeee',classname);
+        $("#"+e.id).removeClass("seatEmpty");
+        $("#"+e.id).addClass("seatSelected");
+  }
+  else {
+    // console.log('ssssssss',classname);
+        $("#"+e.id).removeClass("seatSelected");
+        $("#"+e.id).addClass("seatEmpty");
+  }
+}
+</script>
+</head>
+
+<body background="https://wallpaperaccess.com/full/1561985.jpg">
+  <div class="row">
+    <div class="column">
+      <table>
+        <tr style="border : 2px solid;">
+          <th class="shadow"> SCREEN </th>
+        </tr>
+      </table>
+
+      <div style="margin-top: 10px;">
+        <table id="seatTable" style="background-color: white;">
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="column">
+      <table class="card ticket" style="table-layout: fixed;">
+        <tr>
+          <th colspan="2px"> Q Cinemas, Kochi </th>
+        </tr>
+        <tr>
+          <th colspan="2px"> BANGALORE DAYS </th>
+        </tr>
+
+        <tr>
+          <td> Morning show </td>
+          <td> 9.00 am </td>
+        </tr>
+
+        <tr>
+          <td> Nov 6, 2020 </td>
+          <td> Friday </td>
+        </tr>
+
+        <tr> 
+          <td>Tickets :</td>
+          <td id="seatCount">  </td>
+        </tr>
+
+        <tr> 
+          <td>Seats :</td>
+          <td id="seatName" style="word-break: break-all;"> </td>
+        </tr>
+
+        <tr>
+          <th colspan="2px"> ----------------------</th>
+        </tr>
+
+        <tr>
+          <td> Total (Rs.) : </td>
+          <td> 1000 </td>
+        </tr>
+
+        <tr>
+          <th colspan="2px"> ----------------------</th>
+        </tr>
+
+        <tr>
+          <td> <button class="btn"> CANCEL </button> </td>
+          <td> <button class="btn"> CONFIRM </button> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

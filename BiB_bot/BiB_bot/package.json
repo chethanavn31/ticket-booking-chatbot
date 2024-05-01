@@ -1,0 +1,26 @@
+{
+  "name": "bib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "config": "^3.3.2",
+    "dialogflow": "^1.2.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
+    "redis": "^3.0.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
